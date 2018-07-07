@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  wcup_id: 1
+  country_id: 1
+  pot: 1
+  group_id: 1
+
+two:
+  wcup_id: 1
+  country_id: 1
+  pot: 1
+  group_id: 1
