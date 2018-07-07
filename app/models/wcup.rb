@@ -1,0 +1,2 @@
+class Wcup < ApplicationRecord
+end
