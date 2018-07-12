@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.notdisp{
+    display: none;
+}
+
+.whitedeco a{
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+.whitedeco a:hover{
+    border: 2px double gainsboro;
+}
+.blackdeco a{
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.basediv{
+    width: 90%;
+    margin: 0 auto;
+}

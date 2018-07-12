@@ -1,3 +1,21 @@
 // Place all the styles related to the countries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.arrow{
+    background-color: azure;
+    text-align: center;
+}
+.arrow i{
+    width: 150px;
+    border: 0.5px dashed skyblue;
+}
+.arrow_white{
+    color: skyblue;
+}
+.arrow_black{
+    color: darkblue;
+}
+#qualification_slots_table{
+    margin: 20px 0;
+}

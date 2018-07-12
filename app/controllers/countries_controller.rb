@@ -1,4 +1,7 @@
 class CountriesController < ApplicationController
+  def before
+  end
+
   def europe
   end
 
@@ -17,6 +20,6 @@ class CountriesController < ApplicationController
   def oceania
   end
 
-  def 32nd
+  def thirtysecond
   end
 end

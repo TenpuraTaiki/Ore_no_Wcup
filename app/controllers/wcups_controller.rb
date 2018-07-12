@@ -4,4 +4,7 @@ class WcupsController < ApplicationController
 
   def show
   end
+
+  def top
+  end
 end
