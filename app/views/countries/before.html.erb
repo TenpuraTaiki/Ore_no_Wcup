@@ -2,7 +2,9 @@
     <div class="arrow">
 
         <i class="fas fa-arrow-alt-circle-right arrow_black"><br>つかいかた</i>
-        <i class="fas fa-arrow-alt-circle-right arrow_white"><br>ヨーロッパ</i>
+        <%= link_to europe_path do %>
+            <i class="fas fa-arrow-alt-circle-right arrow_white next_contain_arrow"><br>ヨーロッパ</i>
+        <% end %>
         <i class="fas fa-arrow-alt-circle-right arrow_white"><br>アフリカ</i>
         <i class="fas fa-arrow-alt-circle-right arrow_white"><br>アジア</i>
         <i class="fas fa-arrow-alt-circle-right arrow_white"><br>南米</i>
@@ -12,14 +14,16 @@
     </div>
 
     <div class="select_caption">
-        各大陸ごとにリストからあなたのWカップに出場させたい国を、大陸ごとの出場数まで選んで下さい。<br>
-        <br>
-        ※　注意　※<br>
-        <br>
-        ・ロシアは開催国のため、必ず選ぶ必要があります。<br>
-        ・アジアと北中米カリブ海、オセアニアと南米はそれぞれもう一方の大陸と１枠を争う関係にあります。<br>
-        （例）アジアが５カ国参加する場合、北中米カリブ海のチームは３カ国しか出場できません。<br>
-        ・各大陸の出場枠は以下のとおりです。
+        <p>各大陸ごとにリストからあなたのWカップに出場させたい国を、大陸ごとの出場数まで選んで下さい。</p>
+
+        <h4>※　注意　※</h4>
+
+        <ul>
+            <li>・ロシアは開催国のため、必ず選ぶ必要があります。</li>
+            <li>・アジアと北中米カリブ海、オセアニアと南米はそれぞれもう一方の大陸と１枠を争う関係にあります。</li>
+            <li>（例）アジアが５カ国参加する場合、北中米カリブ海のチームは３カ国しか出場できません。</li>
+            <li>・各大陸の出場枠は以下のとおりです。</li>
+        </ul>
 
         <table id="qualification_slots_table" class="table">
             <thead class="thead-light">
@@ -51,6 +55,9 @@
                 <td>0.5</td>
             </tr>
         </table>
+        <div class="next_contain_button">
+            <%= link_to "ヨーロッパの出場国を選ぶ", europe_path %>
+        </div>
     </div>
 
 </div>
