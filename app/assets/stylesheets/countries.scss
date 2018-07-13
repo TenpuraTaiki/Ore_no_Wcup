@@ -16,6 +16,25 @@
 .arrow_black{
     color: darkblue;
 }
+.next_contain_arrow:hover{
+    color: gold;
+    border: 0.5px dashed gold;
+}
 #qualification_slots_table{
     margin: 20px 0;
+}
+.select_caption li{
+    list-style: none;
+}
+.next_contain_button{
+    width: 50%;
+    margin: 0 auto;
+    padding: 5px;
+    background-color: royalblue;
+    text-align: center;
+}
+.next_contain_button a{
+    color: white;
+    font-size: 20px;
+    line-height: 50px;
 }

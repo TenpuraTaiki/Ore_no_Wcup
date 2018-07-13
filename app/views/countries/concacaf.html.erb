@@ -1,2 +1,30 @@
-<h1>Countries#concacaf</h1>
-<p>Find me in app/views/countries/concacaf.html.erb</p>
+<div class="basediv">
+    <div class="arrow">
+
+        <i class="fas fa-arrow-alt-circle-right arrow_white"><br>つかいかた</i>
+        <i class="fas fa-arrow-alt-circle-right arrow_white"><br>ヨーロッパ</i>
+        <i class="fas fa-arrow-alt-circle-right arrow_white"><br>アフリカ</i>
+        <i class="fas fa-arrow-alt-circle-right arrow_white"><br>アジア</i>
+        <i class="fas fa-arrow-alt-circle-right arrow_white"><br>南米</i>
+        <i class="fas fa-arrow-alt-circle-right arrow_black"><br>北中米カリブ海</i>
+        <%= link_to oceania_path do %>
+            <i class="fas fa-arrow-alt-circle-right arrow_white next_contain_arrow"><br>オセアニア</i>
+        <% end %>
+
+    </div>
+
+    <div class="select_country container-fulid">
+        <div class="row">
+            <div class="col-sm">
+                北中米カリブ海の国一覧
+            </div>
+            <div class="col-sm">
+                北中米カリブ海の出場国
+            </div>
+        </div>
+        
+        <div class="next_contain_button">
+            <%= link_to "オセアニアの出場国を選ぶ", oceania_path %>
+        </div>
+    </div>
+</div>

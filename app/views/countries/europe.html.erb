@@ -1,2 +1,30 @@
-<h1>Countries#europe</h1>
-<p>Find me in app/views/countries/europe.html.erb</p>
+<div class="basediv">
+    <div class="arrow">
+
+        <i class="fas fa-arrow-alt-circle-right arrow_white"><br>つかいかた</i>
+        <i class="fas fa-arrow-alt-circle-right arrow_black"><br>ヨーロッパ</i>
+        <%= link_to africa_path do %>
+            <i class="fas fa-arrow-alt-circle-right arrow_white next_contain_arrow"><br>アフリカ</i>
+        <% end %>
+        <i class="fas fa-arrow-alt-circle-right arrow_white"><br>アジア</i>
+        <i class="fas fa-arrow-alt-circle-right arrow_white"><br>南米</i>
+        <i class="fas fa-arrow-alt-circle-right arrow_white"><br>北中米カリブ海</i>
+        <i class="fas fa-arrow-alt-circle-right arrow_white"><br>オセアニア</i>
+
+    </div>
+
+    <div class="select_country container-fulid">
+        <div class="row">
+            <div class="col-sm">
+                ヨーロッパの国一覧
+            </div>
+            <div class="col-sm">
+                ヨーロッパの出場国
+            </div>
+        </div>
+        
+        <div class="next_contain_button">
+            <%= link_to "アフリカの出場国を選ぶ", africa_path %>
+        </div>
+    </div>
+</div>
