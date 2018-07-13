@@ -3,6 +3,8 @@ class CountriesController < ApplicationController
   end
 
   def europe
+    # @countries = Country.all
+    @countries = Country.where(continent_id: 1)
   end
 
   def africa

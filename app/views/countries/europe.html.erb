@@ -14,9 +14,13 @@
     </div>
 
     <div class="select_country container-fulid">
+        <p>出場させたい国を一覧から選択して下さい
         <div class="row">
             <div class="col-sm">
                 ヨーロッパの国一覧
+                <% @countries.each do |country| %>
+                  <%= country.japanese %><br>
+                <% end %>
             </div>
             <div class="col-sm">
                 ヨーロッパの出場国
