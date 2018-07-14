@@ -1,3 +1,7 @@
+<%# 課題 %>
+<%# １．bootstrapのcssが強い %>
+<%# ２．ボスニアヘルツェゴビナの表示が崩れている %>
+
 <div class="basediv">
     <div class="arrow">
 
@@ -16,13 +20,22 @@
     <div class="select_country container-fulid">
         <p>出場させたい国を一覧から選択して下さい
         <div class="row">
-            <div class="col-sm">
+            <div class="col-sm countries_scroll">
                 ヨーロッパの国一覧
                 <% @countries.each do |country| %>
-                  <%= country.japanese %><br>
+                    <div class="radio_country clearfix">
+                        <%= check_box_tag :radio_country_europe, true, false, :id => "check#{country.id}" %>
+                        <%= label_tag "check#{country.id}" do %>
+                            <%= image_tag(image_url("flag/#{country.name}.png")) %>
+                            <div class="radio_info">
+                                <h3><%= country.japanese %></h3>
+                                <p><%= "Fifaランク#{country.fifarank}位" %></p>
+                            </div>
+                        <% end %>
+                    </div>
                 <% end %>
             </div>
-            <div class="col-sm">
+            <div class="col-sm offset-sm-1 countries_scroll">
                 ヨーロッパの出場国
             </div>
         </div>
