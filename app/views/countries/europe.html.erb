@@ -1,6 +1,7 @@
 <%# 課題 %>
 <%# １．bootstrapのcssが強い %>
 <%# ２．ボスニアヘルツェゴビナの表示が崩れている %>
+<%# ３．ロシアは最初から出場国枠に入っていてほしい %>
 
 <div class="basediv">
     <div class="arrow">
@@ -22,9 +23,10 @@
         <div class="row">
             <div class="col-sm countries_scroll">
                 ヨーロッパの国一覧
+                <div id="countries_scroll"></div>
                 <% @countries.each do |country| %>
                     <div class="radio_country clearfix">
-                        <%= check_box_tag :radio_country_europe, true, false, :id => "check#{country.id}" %>
+                        <%= check_box_tag :radio_country_europe, true, false, :id => "check#{country.id}", :class => "notdisp" %>
                         <%= label_tag "check#{country.id}" do %>
                             <%= image_tag(image_url("flag/#{country.name}.png")) %>
                             <div class="radio_info">
@@ -37,6 +39,8 @@
             </div>
             <div class="col-sm offset-sm-1 countries_scroll">
                 ヨーロッパの出場国
+                <h5>のこり<span class="nokori_count">14</span>か国<h5>
+                <div id="participation_country"></div>
             </div>
         </div>
         
