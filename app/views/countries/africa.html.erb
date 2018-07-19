@@ -14,12 +14,31 @@
     </div>
 
     <div class="select_country container-fulid">
+        <p>出場させたい国を一覧から選択して下さい</p>
+        <%= @europe %>
         <div class="row">
-            <div class="col-sm">
+            <div class="col-sm countries_scroll">
                 アフリカの国一覧
+                <div id="countries_scroll"></div>
+                <% @countries.each do |country| %>
+                    <div class="radio_country">
+                        <%= check_box_tag :radio_country_europe, true, false, :id => "check#{country.id}", :class => "notdisp" %>
+                        <%= label_tag "check#{country.id}" do %>
+                            <%= image_tag(image_url("flag/#{country.name}.png")) %>
+                            <div class="radio_info">
+                                <h3><%= country.japanese %></h3>
+                                <p><%= "Fifaランク#{country.fifarank}位" %></p>
+                            </div>
+                        <% end %>
+                    </div>
+                <% end %>
             </div>
-            <div class="col-sm">
+            <div class="col-sm offset-sm-1 countries_scroll">
                 アフリカの出場国
+                <h5>のこり<span class="nokori_count">5</span>か国<h5>
+                <form action="/countries/asia" method="post" id="participation_country">
+                
+                </form>
             </div>
         </div>
         

@@ -1,3 +1,8 @@
+<%# 課題 %>
+<%# １．bootstrapのcssが強い %>
+<%# ２．ボスニアヘルツェゴビナの表示が崩れている %>
+<%# ３．ロシアは最初から出場国枠に入っていてほしい %>
+
 <div class="basediv">
     <div class="arrow">
 
@@ -14,15 +19,32 @@
     </div>
 
     <div class="select_country container-fulid">
+        <p>出場させたい国を一覧から選択して下さい</p>
         <div class="row">
-            <div class="col-sm">
+            <div class="col-sm countries_scroll">
                 ヨーロッパの国一覧
+                <div id="countries_scroll"></div>
+                <% @countries.each do |country| %>
+                    <div class="radio_country">
+                        <%= check_box_tag :radio_country_europe, country.id, false, :id => "check#{country.id}", :class => "notdisp", :name => "europe[]" %>
+                        <%= label_tag "check#{country.id}" do %>
+                            <%= image_tag(image_url("flag/#{country.name}.png")) %>
+                            <div class="radio_info">
+                                <h3><%= country.japanese %></h3>
+                                <p><%= "Fifaランク#{country.fifarank}位" %></p>
+                            </div>
+                        <% end %>
+                    </div>
+                <% end %>
             </div>
-            <div class="col-sm">
+            <div class="col-sm offset-sm-1 countries_scroll">
                 ヨーロッパの出場国
+                <h5>のこり<span class="nokori_count">14</span>か国<h5>
+                <form action="/countries/africa" method="post" id="participation_country">
+                    <button type="submit">てすとのボタン</button>
+                </form>
             </div>
         </div>
-        
         <div class="next_contain_button">
             <%= link_to "アフリカの出場国を選ぶ", africa_path %>
         </div>
