@@ -26,7 +26,7 @@ $(document).ready(function () {
 
             $(this).parent()
             .clone(true)
-            .appendTo('#participation_country');
+            .prependTo('#participation_country');
 
             $(this).parent()
             .remove();
@@ -38,7 +38,7 @@ $(document).ready(function () {
 
             $(this).parent()
             .clone(true)
-            .appendTo('#countries_scroll');
+            .prependTo('#countries_scroll');
 
             $(this).parent()
             .remove();
