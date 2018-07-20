@@ -1,11 +1,71 @@
-あなたのWカップの出場国は以下の通りでよろしいですか？
+<div class="basediv container-fulid">
+    <h2>あなたのWカップの出場国は以下の通りでよろしいですか？</h2>
 
+    <div class="row">
 
-<% @thirtysecond.each do |country| %>
-    <div class="thirtysecond">
-        <%= image_tag(image_url("flag/#{country.name}.png"), :size => '40x40') %>
-        <div class="radio_info">
-            <p><%= country.japanese %></p>
+        <div class="thirtysecond_box col-sm-3 d-none d-sm-block">
+            <% @col_one.each do |country| %>
+                <div class="thirtysecond">
+                    <%= image_tag(image_url("flag/#{country.name}.png"), :size => '40x40') %>
+                    <div class="radio_info">
+                        <p><%= country.japanese %></p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <div class="thirtysecond_box col-sm-3 d-none d-sm-block">
+            <% @col_two.each do |country| %>
+                <div class="thirtysecond">
+                    <%= image_tag(image_url("flag/#{country.name}.png"), :size => '40x40') %>
+                    <div class="radio_info">
+                        <p><%= country.japanese %></p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <div class="thirtysecond_box col-sm-3 d-none d-sm-block">
+            <% @col_three.each do |country| %>
+                <div class="thirtysecond">
+                    <%= image_tag(image_url("flag/#{country.name}.png"), :size => '40x40') %>
+                    <div class="radio_info">
+                        <p><%= country.japanese %></p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <div class="thirtysecond_box col-sm-3 d-none d-sm-block">
+            <% @col_four.each do |country| %>
+                <div class="thirtysecond">
+                    <%= image_tag(image_url("flag/#{country.name}.png"), :size => '40x40') %>
+                    <div class="radio_info">
+                        <p><%= country.japanese %></p>
+                    </div>
+                </div>
+            <% end %>
         </div>
     </div>
-<% end %>
+
+    <div class="row">
+        <div class="thirtysecond_box col-6 d-sm-none">
+            <% @col_five.each do |country| %>
+                <div class="thirtysecond">
+                    <%= image_tag(image_url("flag/#{country.name}.png"), :size => '40x40') %>
+                    <div class="radio_info">
+                        <p><%= country.japanese %></p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <div class="thirtysecond_box col-6 d-sm-none">
+            <% @col_six.each do |country| %>
+                <div class="thirtysecond">
+                    <%= image_tag(image_url("flag/#{country.name}.png"), :size => '40x40') %>
+                    <div class="radio_info">
+                        <p><%= country.japanese %></p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+
+</div>

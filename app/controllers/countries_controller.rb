@@ -52,5 +52,11 @@ class CountriesController < ApplicationController
     oceania = params[:oceania]
     thirtysecond = europe + africa + asia + southamerica + concacaf + oceania
     @thirtysecond = Country.where(id: thirtysecond)
+    @col_one = @thirtysecond.first(8)
+    @col_two = @thirtysecond.first(16).last(8)
+    @col_three = @thirtysecond.last(16).first(8)
+    @col_four =@thirtysecond.last(8)
+    @col_five = @thirtysecond.first(16)
+    @col_six = @thirtysecond.last(16)
   end
 end

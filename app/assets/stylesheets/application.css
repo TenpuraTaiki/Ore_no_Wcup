@@ -46,3 +46,17 @@
     width: 90%;
     margin: 0 auto;
 }
+
+/* headerとfooter */
+
+header, footer{
+    width: 100%;
+    background-color: powderblue;
+    padding: 10px;
+}
+
+.header_center, .footer_center{
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
