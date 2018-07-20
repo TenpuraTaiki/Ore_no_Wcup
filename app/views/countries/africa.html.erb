@@ -15,14 +15,21 @@
 
     <div class="select_country container-fulid">
         <p>出場させたい国を一覧から選択して下さい</p>
-        <%= @europe %>
+        <div class="row">
+            <div class="countries_label col-sm">
+                アフリカの国一覧
+            </div>
+            <div class="participations_label d-none d-sm-block col-sm offset-sm-1">
+                アフリカの出場国
+                <h5>のこり<span class="nokori_count">5</span>か国<h5>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm countries_scroll">
-                アフリカの国一覧
                 <div id="countries_scroll"></div>
                 <% @countries.each do |country| %>
                     <div class="radio_country">
-                        <%= check_box_tag :radio_country_europe, true, false, :id => "check#{country.id}", :class => "notdisp" %>
+                        <%= check_box_tag :radio_country_africa, country.id, false, :id => "check#{country.id}", :class => "notdisp", :name => "africa[]" %>
                         <%= label_tag "check#{country.id}" do %>
                             <%= image_tag(image_url("flag/#{country.name}.png")) %>
                             <div class="radio_info">
@@ -33,17 +40,23 @@
                     </div>
                 <% end %>
             </div>
-            <div class="col-sm offset-sm-1 countries_scroll">
+            <%# 幅が狭いときのみ表示する %>
+            <div class="participations_label col d-sm-none">
                 アフリカの出場国
-                <h5>のこり<span class="nokori_count">5</span>か国<h5>
+                <h5>のこり<span class="nokori_count2">5</span>か国<h5>
+            </div>
+            <%#  %>
+            <div class="col-sm offset-sm-1 participations_scroll">
                 <form action="/countries/asia" method="post" id="participation_country">
-                
-                </form>
+                    <% @europe_checks.each do |europe| %>
+                        <%= check_box_tag :radio_country_europe, europe.id, true, :id => "check#{europe.id}", :class => "notdisp", :name => "europe[]" %>
+                    <% end %>
             </div>
         </div>
         
         <div class="next_contain_button">
-            <%= link_to "アジアの出場国を選ぶ", asia_path %>
+            <button type="submit" class="typesubmit">アジアの出場国を選ぶ</button>
+            </form>
         </div>
     </div>
 </div>

@@ -16,6 +16,9 @@
 $(document).ready(function () {
 
     var nokori_count = $('.nokori_count').text();
+    var nokori_count2 = $('.nokori_count').text();
+// なぜか.nokori_countを２つの場所に反映させようとすると上手くいかないので
+// しゃーなしに２つにわける
 
     $('input').change(function () { 
 
@@ -33,6 +36,9 @@ $(document).ready(function () {
 
             nokori_count--;
             $('.nokori_count').text(nokori_count);
+            nokori_count2--;
+            $('.nokori_count2').text(nokori_count2);
+
 
         } else {
 
@@ -45,6 +51,9 @@ $(document).ready(function () {
             
             nokori_count++
             $('.nokori_count').text(nokori_count);
+            nokori_count2--;
+            $('.nokori_count2').text(nokori_count2);
+
         }
     });
 

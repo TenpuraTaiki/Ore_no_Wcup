@@ -15,10 +15,15 @@ Rails.application.routes.draw do
   get 'countries/africa' => 'countries#africa', as: "africa"
   post 'countries/africa' =>'countries#africa'
   get 'countries/southamerica' => 'countries#southamerica', as: "southamerica"
+  post 'countries/southamerica' => 'countries#southamerica'
   get 'countries/concacaf' => 'countries#concacaf', as: "concacaf"
+  post 'countries/concacaf' => 'countries#concacaf'
   get 'countries/asia' => 'countries#asia', as: "asia"
+  post 'countries/asia' => 'countries#asia'
   get 'countries/oceania' => 'countries#oceania', as: "oceania"
+  post 'countries/oceania' => 'countries#oceania'
   get 'countries/thirtysecond' => 'countries#thirtysecond', as: "thirtysecond"
+  post 'countries/thirtysecond' => 'countries#thirtysecond'
 
   get 'participations/index'
   get 'participations/shuffle'
