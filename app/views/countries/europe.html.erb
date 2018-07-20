@@ -21,8 +21,16 @@
     <div class="select_country container-fulid">
         <p>出場させたい国を一覧から選択して下さい</p>
         <div class="row">
-            <div class="col-sm countries_scroll">
+            <div class="countries_label col-sm">
                 ヨーロッパの国一覧
+            </div>
+            <div class="participations_label d-none d-sm-block col-sm offset-sm-1">
+                ヨーロッパの出場国
+                <h5>のこり<span class="nokori_count">14</span>か国<h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm countries_scroll">
                 <div id="countries_scroll"></div>
                 <% @countries.each do |country| %>
                     <div class="radio_country">
@@ -37,16 +45,19 @@
                     </div>
                 <% end %>
             </div>
-            <div class="col-sm offset-sm-1 countries_scroll">
+            <%# 幅が狭いときのみ表示する %>
+            <div class="participations_label col d-sm-none">
                 ヨーロッパの出場国
-                <h5>のこり<span class="nokori_count">14</span>か国<h5>
+                <h5>のこり<span class="nokori_count2">14</span>か国<h5>
+            </div>
+            <%#  %>
+            <div class="col-sm offset-sm-1 participations_scroll">
                 <form action="/countries/africa" method="post" id="participation_country">
-                    <button type="submit">てすとのボタン</button>
-                </form>
             </div>
         </div>
         <div class="next_contain_button">
-            <%= link_to "アフリカの出場国を選ぶ", africa_path %>
+            <button type="submit" class="typesubmit">アフリカの出場国を選ぶ</button>
+            </form>
         </div>
     </div>
 </div>

@@ -1,1 +1,11 @@
 あなたのWカップの出場国は以下の通りでよろしいですか？
+
+
+<% @thirtysecond.each do |country| %>
+    <div class="thirtysecond">
+        <%= image_tag(image_url("flag/#{country.name}.png"), :size => '40x40') %>
+        <div class="radio_info">
+            <p><%= country.japanese %></p>
+        </div>
+    </div>
+<% end %>

@@ -31,14 +31,14 @@
 .select_caption li{
     list-style: none;
 }
-.next_contain_button{
+.country_before_button{
     width: 50%;
     margin: 10px auto;
     padding: 5px;
-    background-color: royalblue;
     text-align: center;
+    background-color: royalblue;
 }
-.next_contain_button a{
+.country_before_button a{
     color: white;
     font-size: 20px;
     line-height: 50px;
@@ -47,10 +47,21 @@
 
 // europeからoceania
 
+.countries_label{
+    background-color: rgba(175, 238, 238, 0.5);
+}
+.participations_label{
+    background-color: rgba(255, 182, 193, 0.5);
+}
 .countries_scroll{
     height: 450px;
     overflow: scroll;
-    background-color: paleturquoise;
+    background-color: rgba(175, 238, 238, 0.5);
+}
+.participations_scroll{
+    height: 450px;
+    overflow: scroll;
+    background-color: rgba(255, 182, 193, 0.5);
 }
 .radio_country{
     border-top: 1px solid gray;
@@ -60,4 +71,16 @@
 }
 .radio_info{
     display: inline-grid;
+}
+.typesubmit{
+    width: 100%;
+    padding: 5px;
+    background-color: royalblue;
+    color: white;
+}
+.next_contain_button{
+    width: 50%;
+    margin: 10px auto;
+    padding: 5px;
+    text-align: center;
 }
