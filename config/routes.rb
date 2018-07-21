@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get 'countries/before' => 'countries#before', as: "country_before"
   get 'countries/europe' => 'countries#europe', as: "europe"
+  post 'countries/europe' =>'countries#europe'
   get 'countries/africa' => 'countries#africa', as: "africa"
   post 'countries/africa' =>'countries#africa'
   get 'countries/southamerica' => 'countries#southamerica', as: "southamerica"

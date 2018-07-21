@@ -2,47 +2,19 @@
     <h2>あなたのWカップの出場国は以下の通りでよろしいですか？</h2>
 
     <div class="row">
-
-        <div class="thirtysecond_box col-sm-3 d-none d-sm-block">
-            <% @col_one.each do |country| %>
-                <div class="thirtysecond">
-                    <%= image_tag(image_url("flag/#{country.name}.png"), :size => '40x40') %>
-                    <div class="radio_info">
-                        <p><%= country.japanese %></p>
+        <% @thirtysecond.each_slice(8) do |col_countries| %>
+        <%# each_slice(8)で@thirtysecondを8個ずつの国4グループに割る %>
+            <div class="thirtysecond_box col-sm-3 d-none d-sm-block">
+                <% col_countries.each do |country| %>
+                    <div class="thirtysecond">
+                        <%= image_tag(image_url("flag/#{country.name}.png"), :size => '40x40') %>
+                        <div class="radio_info">
+                            <p><%= country.japanese %></p>
+                        </div>
                     </div>
-                </div>
-            <% end %>
-        </div>
-        <div class="thirtysecond_box col-sm-3 d-none d-sm-block">
-            <% @col_two.each do |country| %>
-                <div class="thirtysecond">
-                    <%= image_tag(image_url("flag/#{country.name}.png"), :size => '40x40') %>
-                    <div class="radio_info">
-                        <p><%= country.japanese %></p>
-                    </div>
-                </div>
-            <% end %>
-        </div>
-        <div class="thirtysecond_box col-sm-3 d-none d-sm-block">
-            <% @col_three.each do |country| %>
-                <div class="thirtysecond">
-                    <%= image_tag(image_url("flag/#{country.name}.png"), :size => '40x40') %>
-                    <div class="radio_info">
-                        <p><%= country.japanese %></p>
-                    </div>
-                </div>
-            <% end %>
-        </div>
-        <div class="thirtysecond_box col-sm-3 d-none d-sm-block">
-            <% @col_four.each do |country| %>
-                <div class="thirtysecond">
-                    <%= image_tag(image_url("flag/#{country.name}.png"), :size => '40x40') %>
-                    <div class="radio_info">
-                        <p><%= country.japanese %></p>
-                    </div>
-                </div>
-            <% end %>
-        </div>
+                <% end %>
+            </div>
+        <% end %>
     </div>
 
     <div class="row">
@@ -67,5 +39,12 @@
             <% end %>
         </div>
     </div>
-
+    <div class="back_to_contain">
+        <form action="/countries/europe" method="post" id="participation_country">
+            <% @europe_checks.each do |europe| %>
+                <%= check_box_tag :radio_country_europe, europe.id, true, :id => "check#{europe.id}", :class => "notdisp", :name => "europe[]" %>
+            <% end %>
+            <button type="submit" class="typesubmit">ヨーロッパの出場国を選び直す</button>
+        </form>
+    </div>
 </div>

@@ -6,11 +6,22 @@ class CountriesController < ApplicationController
 
   def europe
     @countries = Country.where(continent_id: 1)
+    @europe_checks = Country.where(id: params[:europe])
+    @derarenai_countries = @countries - @europe_checks
   end
 
   def africa
     @countries = Country.where(continent_id: 2)
     @europe_checks = Country.where(id: params[:europe])
+
+    if params[:europe] == nil
+      redirect_to europe_path notice:'＜error＞出場国が一つも選ばれていません', europe: params[:europe]
+    elsif @europe_checks.count != 14
+      redirect_to europe_path notice:'＜error＞出場国の数が規定に合っていません', europe: params[:europe]
+    elsif params[:europe].include?('1') == false
+      redirect_to europe_path notice:'＜error＞ロシアは開催国のため必ず出場させてください', europe: params[:europe]
+    end
+
   end
 
   def southamerica
@@ -50,7 +61,14 @@ class CountriesController < ApplicationController
     southamerica = params[:southamerica]
     concacaf = params[:concacaf]
     oceania = params[:oceania]
-    thirtysecond = europe + africa + asia + southamerica + concacaf + oceania
+    @europe_checks = Country.where(id: europe)
+
+    if oceania == nil
+      thirtysecond = europe + africa + asia + southamerica + concacaf
+    else
+      thirtysecond = europe + africa + asia + southamerica + concacaf + oceania
+    end
+
     @thirtysecond = Country.where(id: thirtysecond)
     @col_one = @thirtysecond.first(8)
     @col_two = @thirtysecond.first(16).last(8)
