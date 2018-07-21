@@ -8,9 +8,7 @@
 
         <i class="fas fa-arrow-alt-circle-right arrow_white"><br>つかいかた</i>
         <i class="fas fa-arrow-alt-circle-right arrow_black"><br>ヨーロッパ</i>
-        <%= link_to africa_path do %>
-            <i class="fas fa-arrow-alt-circle-right arrow_white next_contain_arrow"><br>アフリカ</i>
-        <% end %>
+        <i class="fas fa-arrow-alt-circle-right arrow_white next_contain_arrow"><br>アフリカ</i>
         <i class="fas fa-arrow-alt-circle-right arrow_white"><br>アジア</i>
         <i class="fas fa-arrow-alt-circle-right arrow_white"><br>南米</i>
         <i class="fas fa-arrow-alt-circle-right arrow_white"><br>北中米カリブ海</i>
@@ -19,20 +17,21 @@
     </div>
 
     <div class="select_country container-fulid">
-        <p>出場させたい国を一覧から選択して下さい</p>
+        <p>出場させたい国を一覧から選択して下さい</p><br>
+        <h3 class="notice"><%= params[:notice] %></h3>
         <div class="row">
             <div class="countries_label col-sm">
                 ヨーロッパの国一覧
             </div>
             <div class="participations_label d-none d-sm-block col-sm offset-sm-1">
                 ヨーロッパの出場国
-                <h5>のこり<span class="nokori_count">14</span>か国<h5>
+                <h5>のこり<span class="nokori_count"><%= 14 - @europe_checks.count %></span>か国<h5>
             </div>
         </div>
         <div class="row">
             <div class="col-sm countries_scroll">
                 <div id="countries_scroll"></div>
-                <% @countries.each do |country| %>
+                <% @derarenai_countries.each do |country| %>
                     <div class="radio_country">
                         <%= check_box_tag :radio_country_europe, country.id, false, :id => "check#{country.id}", :class => "notdisp", :name => "europe[]" %>
                         <%= label_tag "check#{country.id}" do %>
@@ -48,11 +47,23 @@
             <%# 幅が狭いときのみ表示する %>
             <div class="participations_label col d-sm-none">
                 ヨーロッパの出場国
-                <h5>のこり<span class="nokori_count2">14</span>か国<h5>
+                <h5>のこり<span class="nokori_count2"><%= 14 - @europe_checks.count %></span>か国<h5>
             </div>
             <%#  %>
             <div class="col-sm offset-sm-1 participations_scroll">
                 <form action="/countries/africa" method="post" id="participation_country">
+                <% @europe_checks.each do |country| %>
+                    <div class="radio_country">
+                        <%= check_box_tag :radio_country_europe, country.id, true, :id => "check#{country.id}", :class => "notdisp", :name => "europe[]" %>
+                        <%= label_tag "check#{country.id}" do %>
+                            <%= image_tag(image_url("flag/#{country.name}.png")) %>
+                            <div class="radio_info">
+                                <h3><%= country.japanese %></h3>
+                                <p><%= "Fifaランク#{country.fifarank}位" %></p>
+                            </div>
+                        <% end %>
+                    </div>
+                <% end %>
             </div>
         </div>
         <div class="next_contain_button">
