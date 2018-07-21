@@ -18,33 +18,32 @@
     </div>
 
     <div class="row">
-        <div class="thirtysecond_box col-6 d-sm-none">
-            <% @col_five.each do |country| %>
-                <div class="thirtysecond">
-                    <%= image_tag(image_url("flag/#{country.name}.png"), :size => '40x40') %>
-                    <div class="radio_info">
-                        <p><%= country.japanese %></p>
+        <%# レスポンシブ対応 %>
+        <% @thirtysecond.each_slice(16) do |col_countries| %>
+            <div class="thirtysecond_box col-6 d-sm-none">
+                <% col_countries.each do |country| %>
+                    <div class="thirtysecond">
+                        <%= image_tag(image_url("flag/#{country.name}.png"), :size => '40x40') %>
+                        <div class="radio_info">
+                            <p><%= country.japanese %></p>
+                        </div>
                     </div>
-                </div>
-            <% end %>
-        </div>
-        <div class="thirtysecond_box col-6 d-sm-none">
-            <% @col_six.each do |country| %>
-                <div class="thirtysecond">
-                    <%= image_tag(image_url("flag/#{country.name}.png"), :size => '40x40') %>
-                    <div class="radio_info">
-                        <p><%= country.japanese %></p>
-                    </div>
-                </div>
-            <% end %>
-        </div>
+                <% end %>
+            </div>
+        <% end %>
     </div>
-    <div class="back_to_contain">
-        <form action="/countries/europe" method="post" id="participation_country">
+    <div class="back_to_contain row">
+        <form action="/countries/europe" method="post" id="participation_country" class="col-4">
             <% @europe_checks.each do |europe| %>
                 <%= check_box_tag :radio_country_europe, europe.id, true, :id => "check#{europe.id}", :class => "notdisp", :name => "europe[]" %>
             <% end %>
             <button type="submit" class="typesubmit">ヨーロッパの出場国を選び直す</button>
+        </form>
+        <form action="/countries/africa" method="post" id="participation_country", class="col-4">
+            <% @africa_checks.each do |africa| %>
+                <%= check_box_tag :radio_country_africa, africa.id, true, :id => "check#{africa.id}", :class => "notdisp", :name => "africa[]" %>
+            <% end %>
+            <button type="submit" class="typesubmit">アフリカの出場国を選び直す</button>
         </form>
     </div>
 </div>

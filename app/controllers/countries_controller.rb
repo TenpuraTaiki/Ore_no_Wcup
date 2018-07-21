@@ -62,18 +62,19 @@ class CountriesController < ApplicationController
     concacaf = params[:concacaf]
     oceania = params[:oceania]
     @europe_checks = Country.where(id: europe)
+    @africa_checks = Country.where(id: africa)
+    @asia_checks = Country.where(id: asia)
+    @southamerica_checks = Country.where(id: southamerica)
+    @concacaf_checks = Country.where(id: concacaf)
 
     if oceania == nil
       thirtysecond = europe + africa + asia + southamerica + concacaf
     else
       thirtysecond = europe + africa + asia + southamerica + concacaf + oceania
+      @oceania_checks = Country.where(id: oceania)
     end
 
     @thirtysecond = Country.where(id: thirtysecond)
-    @col_one = @thirtysecond.first(8)
-    @col_two = @thirtysecond.first(16).last(8)
-    @col_three = @thirtysecond.last(16).first(8)
-    @col_four =@thirtysecond.last(8)
     @col_five = @thirtysecond.first(16)
     @col_six = @thirtysecond.last(16)
   end
