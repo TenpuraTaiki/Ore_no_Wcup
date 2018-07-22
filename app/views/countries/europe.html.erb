@@ -17,7 +17,7 @@
     </div>
 
     <div class="select_country container-fulid">
-        <p>出場させたい国を一覧から選択して下さい</p><br>
+        <p>出場させたい国を一覧から選択して下さい</p>
         <h3 class="notice"><%= params[:notice] %></h3>
         <div class="row">
             <div class="countries_label col-sm">
@@ -52,23 +52,38 @@
             <%#  %>
             <div class="col-sm offset-sm-1 participations_scroll">
                 <form action="/countries/africa" method="post" id="participation_country">
-                <% @europe_checks.each do |country| %>
-                    <div class="radio_country">
-                        <%= check_box_tag :radio_country_europe, country.id, true, :id => "check#{country.id}", :class => "notdisp", :name => "europe[]" %>
-                        <%= label_tag "check#{country.id}" do %>
-                            <%= image_tag(image_url("flag/#{country.name}.png")) %>
-                            <div class="radio_info">
-                                <h3><%= country.japanese %></h3>
-                                <p><%= "Fifaランク#{country.fifarank}位" %></p>
-                            </div>
-                        <% end %>
-                    </div>
-                <% end %>
+                    <% @europe_checks.each do |country| %>
+                        <div class="radio_country">
+                            <%= check_box_tag :radio_country_europe, country.id, true, :id => "check#{country.id}", :class => "notdisp", :name => "europe[]" %>
+                            <%= label_tag "check#{country.id}" do %>
+                                <%= image_tag(image_url("flag/#{country.name}.png")) %>
+                                <div class="radio_info">
+                                    <h3><%= country.japanese %></h3>
+                                    <p><%= "Fifaランク#{country.fifarank}位" %></p>
+                                </div>
+                            <% end %>
+                        </div>
+                    <% end %>
+                    <% @africa_checks.each do |africa| %>
+                        <%= check_box_tag :radio_country_africa, africa.id, true, :id => "check#{africa.id}", :class => "notdisp", :name => "africa[]" %>
+                    <% end %>
+                    <% @asia_checks.each do |asia| %>
+                        <%= check_box_tag :radio_country_asia, asia.id, true, :id => "check#{asia.id}", :class => "notdisp", :name => "asia[]" %>
+                    <% end %>
+                    <% @southamerica_checks.each do |southamerica| %>
+                        <%= check_box_tag :radio_country_southamerica, southamerica.id, true, :id => "check#{southamerica.id}", :class => "notdisp", :name => "southamerica[]" %>
+                    <% end %>
+                    <% @concacaf_checks.each do |concacaf| %>
+                        <%= check_box_tag :radio_country_concacaf, concacaf.id, true, :id => "check#{concacaf.id}", :class => "notdisp", :name => "concacaf[]" %>
+                    <% end %>
+                    <% @oceania_checks.each do |oceania| %>
+                        <%= check_box_tag :radio_country_oceania, oceania.id, true, :id => "check#{oceania.id}", :class => "notdisp", :name => "oceania[]" %>
+                    <% end %>
             </div>
         </div>
         <div class="next_contain_button">
-            <button type="submit" class="typesubmit">アフリカの出場国を選ぶ</button>
-            </form>
+                    <button type="submit" class="typesubmit">アフリカの出場国を選ぶ</button>
+                </form>
         </div>
     </div>
 </div>

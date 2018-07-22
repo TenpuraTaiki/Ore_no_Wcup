@@ -4,9 +4,7 @@
         <i class="fas fa-arrow-alt-circle-right arrow_white"><br>つかいかた</i>
         <i class="fas fa-arrow-alt-circle-right arrow_white"><br>ヨーロッパ</i>
         <i class="fas fa-arrow-alt-circle-right arrow_black"><br>アフリカ</i>
-        <%= link_to asia_path do %>
-            <i class="fas fa-arrow-alt-circle-right arrow_white next_contain_arrow"><br>アジア</i>
-        <% end %>
+        <i class="fas fa-arrow-alt-circle-right arrow_white next_contain_arrow"><br>アジア</i>
         <i class="fas fa-arrow-alt-circle-right arrow_white"><br>南米</i>
         <i class="fas fa-arrow-alt-circle-right arrow_white"><br>北中米カリブ海</i>
         <i class="fas fa-arrow-alt-circle-right arrow_white"><br>オセアニア</i>
@@ -21,13 +19,13 @@
             </div>
             <div class="participations_label d-none d-sm-block col-sm offset-sm-1">
                 アフリカの出場国
-                <h5>のこり<span class="nokori_count">5</span>か国<h5>
+                <h5>のこり<span class="nokori_count"><%= 5 - @africa_checks.count %></span>か国<h5>
             </div>
         </div>
         <div class="row">
             <div class="col-sm countries_scroll">
                 <div id="countries_scroll"></div>
-                <% @countries.each do |country| %>
+                <% @derarenai_countries.each do |country| %>
                     <div class="radio_country">
                         <%= check_box_tag :radio_country_africa, country.id, false, :id => "check#{country.id}", :class => "notdisp", :name => "africa[]" %>
                         <%= label_tag "check#{country.id}" do %>
@@ -43,7 +41,7 @@
             <%# 幅が狭いときのみ表示する %>
             <div class="participations_label col d-sm-none">
                 アフリカの出場国
-                <h5>のこり<span class="nokori_count2">5</span>か国<h5>
+                <h5>のこり<span class="nokori_count2"><%= 5 - @africa_checks.count %></span>か国<h5>
             </div>
             <%#  %>
             <div class="col-sm offset-sm-1 participations_scroll">
@@ -51,12 +49,36 @@
                     <% @europe_checks.each do |europe| %>
                         <%= check_box_tag :radio_country_europe, europe.id, true, :id => "check#{europe.id}", :class => "notdisp", :name => "europe[]" %>
                     <% end %>
+                    <% @africa_checks.each do |country| %>
+                        <div class="radio_country">
+                            <%= check_box_tag :radio_country_africa, country.id, true, :id => "check#{country.id}", :class => "notdisp", :name => "africa[]" %>
+                            <%= label_tag "check#{country.id}" do %>
+                                <%= image_tag(image_url("flag/#{country.name}.png")) %>
+                                <div class="radio_info">
+                                    <h3><%= country.japanese %></h3>
+                                    <p><%= "Fifaランク#{country.fifarank}位" %></p>
+                                </div>
+                            <% end %>
+                        </div>
+                    <% end %>
+                    <% @asia_checks.each do |asia| %>
+                        <%= check_box_tag :radio_country_asia, asia.id, true, :id => "check#{asia.id}", :class => "notdisp", :name => "asia[]" %>
+                    <% end %>
+                    <% @southamerica_checks.each do |southamerica| %>
+                        <%= check_box_tag :radio_country_southamerica, southamerica.id, true, :id => "check#{southamerica.id}", :class => "notdisp", :name => "southamerica[]" %>
+                    <% end %>
+                    <% @concacaf_checks.each do |concacaf| %>
+                        <%= check_box_tag :radio_country_concacaf, concacaf.id, true, :id => "check#{concacaf.id}", :class => "notdisp", :name => "concacaf[]" %>
+                    <% end %>
+                    <% @oceania_checks.each do |oceania| %>
+                        <%= check_box_tag :radio_country_oceania, oceania.id, true, :id => "check#{oceania.id}", :class => "notdisp", :name => "oceania[]" %>
+                    <% end %>
             </div>
         </div>
         
         <div class="next_contain_button">
-            <button type="submit" class="typesubmit">アジアの出場国を選ぶ</button>
-            </form>
+                    <button type="submit" class="typesubmit">アジアの出場国を選ぶ</button>
+                </form>
         </div>
     </div>
 </div>

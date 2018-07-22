@@ -20,13 +20,13 @@
             </div>
             <div class="participations_label d-none d-sm-block col-sm offset-sm-1">
                 オセアニアの出場国
-                <h5>のこり<span class="nokori_count">0.5</span>か国<h5>
+                <h5>のこり<span class="nokori_count"><%= 5 - @southamerica_checks.count - @oceania_checks.count %></span>か国<h5>
             </div>
         </div>
         <div class="row">
             <div class="col-sm countries_scroll">
                 <div id="countries_scroll"></div>
-                <% @countries.each do |country| %>
+                <% @derarenai_countries.each do |country| %>
                     <div class="radio_country">
                         <%= check_box_tag :radio_country_oceania, country.id, false, :id => "check#{country.id}", :class => "notdisp", :name => "oceania[]" %>
                         <%= label_tag "check#{country.id}" do %>
@@ -42,7 +42,7 @@
             <%# 幅が狭いときのみ表示する %>
             <div class="participations_label col d-sm-none">
                 オセアニアの出場国
-                <h5>のこり<span class="nokori_count2">0.5</span>か国<h5>
+                <h5>のこり<span class="nokori_count2"><%= 5 - @southamerica_checks.count - @oceania_checks.count %></span>か国<h5>
             </div>
             <%#  %>
             <div class="col-sm offset-sm-1 participations_scroll">
@@ -62,12 +62,24 @@
                     <% @concacaf_checks.each do |concacaf| %>
                         <%= check_box_tag :radio_country_concacaf, concacaf.id, true, :id => "check#{concacaf.id}", :class => "notdisp", :name => "concacaf[]" %>
                     <% end %>
+                    <% @oceania_checks.each do |country| %>
+                        <div class="radio_country">
+                            <%= check_box_tag :radio_country_oceania, country.id, true, :id => "check#{country.id}", :class => "notdisp", :name => "oceania[]" %>
+                            <%= label_tag "check#{country.id}" do %>
+                                <%= image_tag(image_url("flag/#{country.name}.png")) %>
+                                <div class="radio_info">
+                                    <h3><%= country.japanese %></h3>
+                                    <p><%= "Fifaランク#{country.fifarank}位" %></p>
+                                </div>
+                            <% end %>
+                        </div>
+                    <% end %>
             </div>
         </div>
         
         <div class="next_contain_button">
-            <button type="submit" class="typesubmit">出場国を確認する</button>
-            </form>
+                    <button type="submit" class="typesubmit">出場国を確認する</button>
+                </form>
         </div>
     </div>
 </div>
