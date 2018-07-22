@@ -7,9 +7,7 @@
         <i class="fas fa-arrow-alt-circle-right arrow_white"><br>アジア</i>
         <i class="fas fa-arrow-alt-circle-right arrow_white"><br>南米</i>
         <i class="fas fa-arrow-alt-circle-right arrow_black"><br>北中米カリブ海</i>
-        <%= link_to oceania_path do %>
-            <i class="fas fa-arrow-alt-circle-right arrow_white next_contain_arrow"><br>オセアニア</i>
-        <% end %>
+        <i class="fas fa-arrow-alt-circle-right arrow_white next_contain_arrow"><br>オセアニア</i>
 
     </div>
 
@@ -21,13 +19,13 @@
             </div>
             <div class="participations_label d-none d-sm-block col-sm offset-sm-1">
                 北中米カリブ海の出場国
-                <h5>のこり<span class="nokori_count">3.5</span>か国<h5>
+                <h5>のこり<span class="nokori_count"><%= 8 - @asia_checks.count - @concacaf_checks.count %></span>か国<h5>
             </div>
         </div>
         <div class="row">
             <div class="col-sm countries_scroll">
                 <div id="countries_scroll"></div>
-                <% @countries.each do |country| %>
+                <% @derarenai_countries.each do |country| %>
                     <div class="radio_country">
                         <%= check_box_tag :radio_country_concacaf, country.id, false, :id => "check#{country.id}", :class => "notdisp", :name => "concacaf[]" %>
                         <%= label_tag "check#{country.id}" do %>
@@ -43,7 +41,7 @@
             <%# 幅が狭いときのみ表示する %>
             <div class="participations_label col d-sm-none">
                 北中米カリブ海の出場国
-                <h5>のこり<span class="nokori_count2">3.5</span>か国<h5>
+                <h5>のこり<span class="nokori_count2"><%= 8 - @asia_checks.count - @concacaf_checks.count %></span>か国<h5>
             </div>
             <%#  %>
             <div class="col-sm offset-sm-1 participations_scroll">
@@ -59,6 +57,21 @@
                     <% end %>
                     <% @southamerica_checks.each do |southamerica| %>
                         <%= check_box_tag :radio_country_southamerica, southamerica.id, true, :id => "check#{southamerica.id}", :class => "notdisp", :name => "southamerica[]" %>
+                    <% end %>
+                    <% @concacaf_checks.each do |country| %>
+                        <div class="radio_country">
+                            <%= check_box_tag :radio_country_concacaf, country.id, true, :id => "check#{country.id}", :class => "notdisp", :name => "concacaf[]" %>
+                            <%= label_tag "check#{country.id}" do %>
+                                <%= image_tag(image_url("flag/#{country.name}.png")) %>
+                                <div class="radio_info">
+                                    <h3><%= country.japanese %></h3>
+                                    <p><%= "Fifaランク#{country.fifarank}位" %></p>
+                                </div>
+                            <% end %>
+                        </div>
+                    <% end %>
+                    <% @oceania_checks.each do |oceania| %>
+                        <%= check_box_tag :radio_country_oceania, oceania.id, true, :id => "check#{oceania.id}", :class => "notdisp", :name => "oceania[]" %>
                     <% end %>
             </div>
         </div>
