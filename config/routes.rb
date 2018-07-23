@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'wcups#top'
+  post 'wcups/create' => 'wcups#create'
   get 'wcups/index'
   get 'wcups/show'
 
@@ -26,8 +27,8 @@ Rails.application.routes.draw do
   get 'countries/thirtysecond' => 'countries#thirtysecond', as: "thirtysecond"
   post 'countries/thirtysecond' => 'countries#thirtysecond'
 
-  get 'participations/index'
-  get 'participations/shuffle'
+  get 'participations/:id/index' => 'participations#index', as: 'participations'
+  get 'participations/:id/shuffle' => 'participations#shuffle', as: 'shuffle'
 
 
 

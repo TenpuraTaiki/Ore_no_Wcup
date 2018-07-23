@@ -62,4 +62,13 @@
             <% end %>
         <% end %>
     </div>
+
+    <div class="create_participations">
+        <form action="/wcups/create" method="post">
+            <% @thirtysecond.each do |participation| %>
+                    <%= check_box_tag :check_country, participation.id, true, :class => "notdisp", :name => "participation[]" %>
+            <% end %>
+            <button type="submit">この32カ国でオッケー！</button>
+        </form>
+    </div>
 </div>
