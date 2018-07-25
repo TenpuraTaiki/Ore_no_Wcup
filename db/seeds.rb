@@ -6,12 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Continent.create(name: 'Europe')
-Continent.create(name: 'Africa')
-Continent.create(name: 'South-America')
-Continent.create(name: 'Asia')
-Continent.create(name: 'Concacaf')
-Continent.create(name: 'Oceania')
+Group.create(name: 'A')
+Group.create(name: 'B')
+Group.create(name: 'C')
+Group.create(name: 'D')
+Group.create(name: 'E')
+Group.create(name: 'F')
+Group.create(name: 'G')
+Group.create(name: 'H')
+
+Continent.create(name: 'europe', japanese: 'ヨーロッパ')
+Continent.create(name: 'africa', japanese: 'アフリカ')
+Continent.create(name: 'southamerica', japanese: '南米')
+Continent.create(name: 'asia', japanese: 'アジア')
+Continent.create(name: 'concacaf', japanese: '北中米カリブ海')
+Continent.create(name: 'oceania', japanese: 'オセアニア')
 
 require "csv"
 
