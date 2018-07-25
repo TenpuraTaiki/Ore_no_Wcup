@@ -11,6 +11,9 @@ class ParticipationsController < ApplicationController
     cnot = call-cpluck
     @zannen = Country.order(:fifarank).find(cnot).first
 
+    @strong = Country.order(:fifarank).find(cpluck).first
+    @strong2 = Country.order(:fifarank).find(cpluck)[2]
+
   end
 
   def shuffle
