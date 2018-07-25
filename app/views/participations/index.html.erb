@@ -1,2 +1,50 @@
-<h1>Participations#index</h1>
-<p>Find me in app/views/participations/index.html.erb</p>
+<div class="basediv container-fulid">
+
+    <div class="row">
+            <div class="pot_box col-sm-3 d-none d-sm-block">
+                <% @pot1.each do |participation| %>
+                    <div class="thirtysecond">
+                        <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '40x40') %>
+                        <div class="radio_info">
+                            <p><%= participation.country.fifarank %></p>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+            <div class="pot_box col-sm-3 d-none d-sm-block">
+                <% @pot2.each do |participation| %>
+                    <div class="thirtysecond">
+                        <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '40x40') %>
+                        <div class="radio_info">
+                            <p><%= participation.country.fifarank %></p>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+            <div class="pot_box col-sm-3 d-none d-sm-block">
+                <% @pot3.each do |participation| %>
+                    <div class="thirtysecond">
+                        <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '40x40') %>
+                        <div class="radio_info">
+                            <p><%= participation.country.fifarank %></p>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+            <div class="pot_box col-sm-3 d-none d-sm-block">
+                <% @pot4.each do |participation| %>
+                    <div class="thirtysecond">
+                        <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '40x40') %>
+                        <div class="radio_info">
+                            <p><%= participation.country.fifarank %></p>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+    </div>
+
+    <div class="surprise">
+        <%= @zannen.name %>
+        <%= @zannen.japanese %>の予選敗退は驚きました
+    </div>
+</div>

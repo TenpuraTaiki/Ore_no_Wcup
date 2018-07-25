@@ -1,5 +1,5 @@
 class CountriesController < ApplicationController
-  protect_from_forgery :except => [:europe, :africa, :southamerica, :concacaf, :asia, :oceania]
+  protect_from_forgery :except => [:europe, :africa, :southamerica, :concacaf, :asia, :oceania, :thirtysecond]
   # これ書いてないとpostしたときにエラーがでる
 
   def before
@@ -122,6 +122,6 @@ class CountriesController < ApplicationController
       redirect_to oceania_path notice:'＜error＞出場国の数が規定に合っていません', europe: params[:europe], africa: params[:africa], asia: params[:asia], southamerica: params[:southamerica], concacaf: params[:concacaf], oceania: params[:oceania]
     end
 
-    @thirtysecond = Country.where(id: thirtysecond)
+    @thirtysecond = Country.where(id: thirtysecond).order(:fifarank)
   end
 end
