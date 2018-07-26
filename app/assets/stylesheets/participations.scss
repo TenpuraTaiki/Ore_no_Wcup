@@ -1,3 +1,58 @@
 // Place all the styles related to the participations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.t_icon{
+    width: 10%;
+    font-size: 32px;
+    float: left;
+    text-align: center;
+}
+.t_message{
+    width: 90%;
+    float: left;
+    padding: 5px 5px 5px 0;
+}
+.t_message p{
+    margin-bottom: 0;
+    padding-top: 5px;
+}
+.announcer{
+    background-color: whitesmoke;
+    border: 1px double green;
+}
+.commentator{
+    background-color: whitesmoke;
+    border: 1px double blue;
+}
+.pots{
+    border-top: 1px dashed black;
+    border-bottom: 1px dashed black;
+}
+.pot_box{
+    padding: 20px 15px;
+    color: gold;
+    text-shadow: 2px 2px 1px black;
+}
+.thirtysecond{
+    border: 3px ridge gold;
+    border-radius: 10%;
+    padding: 2px 5px;
+    background-color: slategrey;
+    color: whitesmoke;
+    text-shadow: 2px 2px 1px black;
+}
+.lets_shuffle{
+    width: 50%;
+    margin: 0 auto;
+    padding: 5px;
+    font-size: 24px;
+    text-align: center;
+    background-color: firebrick;
+
+}
+.lets_shuffle a{
+    color: white;
+    display: block;
+}

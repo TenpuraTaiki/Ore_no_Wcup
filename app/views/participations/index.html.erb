@@ -1,50 +1,194 @@
 <div class="basediv container-fulid">
-
-    <div class="row">
+    <div class="talk">
+        <div class="announcer clearfix">
+            <div class="t_icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="t_message">
+                <p>照日野アナ雄です。いよいよワールドカップの出場国が決まりました。本日は解説に先日現役を引退されたサッカー＝ボール氏をお迎えし、お話を聞いていきます。ボールさん、よろしくお願いいたします。</p>
+            </div>
+        </div>
+        <div class="commentator clearfix">
+            <div class="t_icon">
+                <i class="fas fa-futbol"></i>
+            </div>
+            <div class="t_message">
+                <p>よろしくお願いします。</p>
+            </div>
+        </div>
+        <div class="announcer clearfix">
+            <div class="t_icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="t_message">
+                <p>まずは出場が決まった32か国の面々を一覧で見てみましょう。こちらをご覧ください。</p>
+            </div>
+        </div>
+    </div>
+    <div class="row pots">
             <div class="pot_box col-sm-3 d-none d-sm-block">
+                <h3>POT1</h3>
                 <% @pot1.each do |participation| %>
                     <div class="thirtysecond">
                         <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '40x40') %>
                         <div class="radio_info">
-                            <p><%= participation.country.fifarank %></p>
+                            <p><%= participation.country.japanese %></p>
                         </div>
                     </div>
                 <% end %>
             </div>
             <div class="pot_box col-sm-3 d-none d-sm-block">
+                <h3>POT2</h3>
                 <% @pot2.each do |participation| %>
                     <div class="thirtysecond">
                         <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '40x40') %>
                         <div class="radio_info">
-                            <p><%= participation.country.fifarank %></p>
+                            <p><%= participation.country.japanese %></p>
                         </div>
                     </div>
                 <% end %>
             </div>
             <div class="pot_box col-sm-3 d-none d-sm-block">
+                <h3>POT3</h3>
                 <% @pot3.each do |participation| %>
                     <div class="thirtysecond">
                         <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '40x40') %>
                         <div class="radio_info">
-                            <p><%= participation.country.fifarank %></p>
+                            <p><%= participation.country.japanese %></p>
                         </div>
                     </div>
                 <% end %>
             </div>
             <div class="pot_box col-sm-3 d-none d-sm-block">
+            <h3>POT4</h3>
                 <% @pot4.each do |participation| %>
                     <div class="thirtysecond">
                         <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '40x40') %>
                         <div class="radio_info">
-                            <p><%= participation.country.fifarank %></p>
+                            <p><%= participation.country.japanese %></p>
                         </div>
                     </div>
                 <% end %>
             </div>
     </div>
-
-    <div class="surprise">
-        <%= @zannen.name %>
-        <%= @zannen.japanese %>の予選敗退は驚きました
+    <%# レスポンシブ対応 %>
+    <div class="row pots">
+            <div class="pot_box col-6 d-sm-none">
+                <h3>POT1</h3>
+                <% @pot1.each do |participation| %>
+                    <div class="thirtysecond">
+                        <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '40x40') %>
+                        <div class="radio_info">
+                            <p><%= participation.country.japanese %></p>
+                        </div>
+                    </div>
+                <% end %>
+                <h3>POT3</h3>
+                <% @pot3.each do |participation| %>
+                    <div class="thirtysecond">
+                        <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '40x40') %>
+                        <div class="radio_info">
+                            <p><%= participation.country.japanese %></p>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+            <div class="pot_box col-6 d-sm-none">
+                <h3>POT2</h3>
+                <% @pot2.each do |participation| %>
+                    <div class="thirtysecond">
+                        <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '40x40') %>
+                        <div class="radio_info">
+                            <p><%= participation.country.japanese %></p>
+                        </div>
+                    </div>
+                <% end %>
+                <h3>POT4</h3>
+                <% @pot4.each do |participation| %>
+                    <div class="thirtysecond">
+                        <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '40x40') %>
+                        <div class="radio_info">
+                            <p><%= participation.country.japanese %></p>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+    </div>
+    <div class="talk">
+        <div class="announcer clearfix">
+            <div class="t_icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="t_message">
+                <p>まずはこの32か国を見て、率直にどう思われましたか？</p>
+            </div>
+        </div>
+        <div class="commentator clearfix">
+            <div class="t_icon">
+                <i class="fas fa-futbol"></i>
+            </div>
+            <div class="t_message">
+                <p>面白い大会になりそうだな、と思いますね。今から開催が楽しみです。一方で<%= @zannen.japanese %>の予選敗退は驚きました。</p>
+            </div>
+        </div>
+        <div class="announcer clearfix">
+            <div class="t_icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="t_message">
+                <p>そうですねー。出場間違いなしと思われていたチームですから、予選敗退は衝撃的でしたね。</p>
+            </div>
+        </div>
+        <div class="commentator clearfix">
+            <div class="t_icon">
+                <i class="fas fa-futbol"></i>
+            </div>
+            <div class="t_message">
+                <p>近年ずっと好調だった<%= @zannen.japanese %>をワールドカップで見ることが出来ないのは残念ではあります。一方で<%= @zannen.japanese %>さえも出場できないこともあるというのは、まさに「何が起こるかわからない」というサッカーの面白さでもあると思います。</p>
+            </div>
+        </div>
+        <div class="announcer clearfix">
+            <div class="t_icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="t_message">
+                <p>そうですね。まもなく組み合わせ抽選が始まりますが、注目はどこでしょうか？</p>
+            </div>
+        </div>
+        <div class="commentator clearfix">
+            <div class="t_icon">
+                <i class="fas fa-futbol"></i>
+            </div>
+            <div class="t_message">
+                <p>やはり<%= @strong.japanese %>と<%= @strong2.japanese %>がどの組に入るかではないでしょうか。POT2以降のどのチームも出来れば同じグループに入りたくないというのが本音だと思いますよ。</p>
+            </div>
+        </div>
+        <div class="announcer clearfix">
+            <div class="t_icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="t_message">
+                <p>いわゆる「死の組」が生まれるのかといった点もワクワクいたしますが、ボールさんのイチオシチームはありますか？</p>
+            </div>
+        </div>
+        <div class="commentator clearfix">
+            <div class="t_icon">
+                <i class="fas fa-futbol"></i>
+            </div>
+            <div class="t_message">
+                <p>私は<%= @pot4.first.country.japanese %>が今大会の台風の目になるんではないかと、思っていますね。</p>
+            </div>
+        </div>
+        <div class="announcer clearfix">
+            <div class="t_icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="t_message">
+                <p>なるほど、あっ、いよいよ組み合わせ抽選が始まるようです。</p>
+            </div>
+        </div>
+    </div>
+    <div class="lets_shuffle">
+        <%= link_to "抽選結果を見る", shuffle_path(params[:id]) %>
     </div>
 </div>
