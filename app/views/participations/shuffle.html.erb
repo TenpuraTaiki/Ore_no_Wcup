@@ -1,2 +1,43 @@
-<h1>Participations#shuffle</h1>
-<p>Find me in app/views/participations/shuffle.html.erb</p>
+<div class="basediv container-fulid">
+    <div class="talk">
+        <div class="announcer clearfix">
+            <div class="t_icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="t_message">
+                <p>ワールドカップ組み合わせ抽選の模様を、引き続きサッカー＝ボールさんとご一緒にお伝えしていきます。</p>
+            </div>
+        </div>
+        <div class="commentator clearfix">
+            <div class="t_icon">
+                <i class="fas fa-futbol"></i>
+            </div>
+            <div class="t_message">
+                <p>よろしくお願いします。</p>
+            </div>
+        </div>
+        <div class="announcer clearfix">
+            <div class="t_icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="t_message">
+                <p>まずPOT2までの抽選が終わりました。ご覧ください<%= @death.name %></p>
+            </div>
+        </div>
+    </div>
+    <div class="POT1 row">
+        <% @participations.order(:group_id).each_slice(4).with_index(1) do |group, i| %>
+        <%# .with_indexだけだとiがゼロから始まる。(1)を付けることでiが1から始まる %>
+            <div class="col-3">
+                <div class="group_waku">
+                    <h3>グループ<%= Group.find(i).name %></h3>
+                    <% group.first(2).each do |participation| %>
+                        <p><%= participation.country.japanese %></p>
+                    <% end %>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
