@@ -23,7 +23,16 @@
   <body>
     <header>
       <div class="header_center">
-        <h1>へっだー</h1>
+				<div class="logo">
+          <%= link_to image_tag("logo.png"), root_path %>
+          <nav>
+          <% if user_signed_in? %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to "ログイン", new_user_session_path %>
+          <% end %>
+          </nav>
+        </div>
       </div>
     </header>
 

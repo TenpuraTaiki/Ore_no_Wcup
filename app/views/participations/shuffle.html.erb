@@ -5,7 +5,7 @@
                 <i class="fas fa-user-tie"></i>
             </div>
             <div class="t_message">
-                <p>ワールドカップ組み合わせ抽選の模様を、引き続きサッカー＝ボールさんとご一緒にお伝えしていきます。</p>
+                <p>先程すべての抽選が終わりました。ワールドカップ組み合わせ抽選の結果を、引き続きサッカー＝ボールさんとご一緒にお伝えしていきます。</p>
             </div>
         </div>
         <div class="commentator clearfix">
@@ -21,23 +21,112 @@
                 <i class="fas fa-user-tie"></i>
             </div>
             <div class="t_message">
-                <p>まずPOT2までの抽選が終わりました。ご覧ください<%= @death.name %></p>
+                <p>では一気に見ていきましょう。ご覧ください</p>
             </div>
         </div>
     </div>
     <div class="POT1 row">
-        <% @participations.order(:group_id).each_slice(4).with_index(1) do |group, i| %>
+        <% @participations.order(:group_id).order(:pot).each_slice(4).with_index(1) do |group, i| %>
         <%# .with_indexだけだとiがゼロから始まる。(1)を付けることでiが1から始まる %>
-            <div class="col-3">
+            <div class="d-none d-sm-block col-sm-6">
                 <div class="group_waku">
-                    <h3>グループ<%= Group.find(i).name %></h3>
-                    <% group.first(2).each do |participation| %>
-                        <p><%= participation.country.japanese %></p>
+                    <h2>グループ<%= Group.find(i).name %></h2>
+                    <% group.each do |participation| %>
+                        <div class="participation_waku">
+                            <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '120x120') %>
+                            <div class="group_info">
+                                <p class="country_name"><%= participation.country.japanese %></p>
+                                <p>Fifaランク<%= participation.country.fifarank %>位</p>
+                            </div>
+                        </div>
                     <% end %>
-                    <br>
                     <br>
                 </div>
             </div>
         <% end %>
+        <% @participations.order(:group_id).order(:pot).each_slice(4).with_index(1) do |group, i| %>
+        <%# レスポンシブ対応 %>
+            <div class="col-12 d-sm-none">
+                <div class="group_waku">
+                    <h2>グループ<%= Group.find(i).name %></h2>
+                    <% group.each do |participation| %>
+                        <div class="participation_waku">
+                            <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '120x120') %>
+                            <div class="group_info">
+                                <p class="country_name"><%= participation.country.japanese %></p>
+                                <p>Fifaランク<%= participation.country.fifarank %>位</p>
+                            </div>
+                        </div>
+                    <% end %>
+                    <br>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div class="talk">
+        <div class="announcer clearfix">
+            <div class="t_icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="t_message">
+                <p>ついに組み合わせが決まりました。ボールさん、いかがでしょうか</p>
+            </div>
+        </div>
+        <div class="commentator clearfix">
+            <div class="t_icon">
+                <i class="fas fa-futbol"></i>
+            </div>
+            <div class="t_message">
+                <p>ロシアがここに入ったか、というのはまず思いますね。ほかのPOT1の国と比べると力が劣るのでは、と言われているロシアですが開催国ということは全試合ホームと言えるわけですから、実際には観客の力に後押しされて力を発揮するかもしれません。</p>
+            </div>
+        </div>
+        <div class="announcer clearfix">
+            <div class="t_icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="t_message">
+                <p>たしかにそうですね。他に気になるといえば、いわゆる「死の組」と言われるグループですが、いかがでしょうか？</p>
+            </div>
+        </div>
+        <div class="commentator clearfix">
+            <div class="t_icon">
+                <i class="fas fa-futbol"></i>
+            </div>
+            <div class="t_message">
+                <p>グループ<%= @death.name %>は非常に予想が難しいですね。グループ内のチーム同士で力が拮抗していると思います。このグループはどこが決勝トーナメントに進んでもおかしくありませんよ。</p>
+            </div>
+        </div>
+        <div class="announcer clearfix">
+            <div class="t_icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="t_message">
+                <p>開幕がいよいよ楽しみになってまいりました。お話したい点はまだまだあるのですが、そろそろお時間のようです。「俺のワールドカップ」では会員登録いただくと、今回の抽選結果について皆様のコメントを書き込んだり、抽選結果をお気に入りに登録しておくことが出来ます。</p>
+            </div>
+        </div>
+        <div class="commentator clearfix">
+            <div class="t_icon">
+                <i class="fas fa-futbol"></i>
+            </div>
+            <div class="t_message">
+                <p>私も話したいことがまだあるので、早速会員登録しますよ。</p>
+            </div>
+        </div>
+        <div class="announcer clearfix">
+            <div class="t_icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="t_message">
+                <p>ありがとうございます。ではまた本大会でお会いしましょう。ここまで照日野アナ雄と、解説はサッカー＝ボールさんでお伝えしました。本日はありがとうございました。</p>
+            </div>
+        </div>
+        <div class="commentator clearfix">
+            <div class="t_icon">
+                <i class="fas fa-futbol"></i>
+            </div>
+            <div class="t_message">
+                <p>ありがとうございました。</p>
+            </div>
+        </div>
     </div>
 </div>
