@@ -28,7 +28,7 @@
     display: none;
 }
 .background{
-    background-color: lightslategrey;
+    background-color: azure;
 }
 
 .whitedeco a{
@@ -56,13 +56,18 @@
 /* headerとfooter */
 
 header, footer{
-    width: 100%;
-    background-color: powderblue;
+    background-color: lightyellow;
     padding: 10px;
 }
-
+header nav:hover{
+    background-color: bisque;
+}
 .header_center, .footer_center{
-    width: 50%;
+    width: 500px;
     margin: 0 auto;
     text-align: center;
+}
+.logo img{
+    width: 100%;
+	object-fit: contain;
 }

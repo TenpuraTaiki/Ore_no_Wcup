@@ -19,31 +19,6 @@ class ParticipationsController < ApplicationController
   def shuffle
     @participations = Participation.where(wcup_id: params[:id])
 
-    pot1 = @participations.where(pot: 1)
-    pot2 = @participations.where(pot: 2)
-    pot3 = @participations.where(pot: 3)
-    pot4 = @participations.where(pot: 4)
-
-    pot1.shuffle.each_with_index do |p1, i|
-      p1.group_id = i+1
-      p1.save
-    end
-
-    pot2.shuffle.each_with_index do |p2, i|
-      p2.group_id = i+1
-      p2.save
-    end
-
-    pot3.shuffle.each_with_index do |p3, i|
-      p3.group_id = i+1
-      p3.save
-    end
-
-    pot4.shuffle.each_with_index do |p4, i|
-      p4.group_id = i+1
-      p4.save
-    end
-
     ga_pluck = @participations.where(group_id: 1).pluck(:country_id)
     gb_pluck = @participations.where(group_id: 2).pluck(:country_id)
     gc_pluck = @participations.where(group_id: 3).pluck(:country_id)
