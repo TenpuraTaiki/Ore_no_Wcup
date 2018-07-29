@@ -1,9 +1,12 @@
 class WcupsController < ApplicationController
   protect_from_forgery :except => [:create]
   def index
+    @wcups = Favorite.all
   end
 
   def show
+    @favorite = Favorite.find(params[:id])
+    @participations = Participation.where(wcup_id: @favorite.wcup_id)
   end
 
   def top
@@ -51,6 +54,8 @@ class WcupsController < ApplicationController
     end
 
   # ここからグループ分け
+    @participations = Participation.where(wcup_id: wcup)
+
     pot_1 = @participations.where(pot: 1)
     pot_2 = @participations.where(pot: 2)
     pot_3 = @participations.where(pot: 3)

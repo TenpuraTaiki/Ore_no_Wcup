@@ -129,4 +129,17 @@
             </div>
         </div>
     </div>
+    <div class="save_or_root">
+        <%= link_to "トップ画面へ戻る", root_path %>
+
+        <% if user_signed_in? %>
+            <%= form_tag("/favorites/new", :method => "post") do %>
+                <%= check_box_tag :post_wcup_id, params[:id], true, :class => "notdisp", :name => "wcup_id[]" %>
+                <button type="submit" class="typesubmit"><%= "お気に入りに登録する" %></button>
+            <% end %>
+        <% else %>
+            <%= link_to "お気に入り登録をするにはログインが必要です", new_user_session_path %>
+        <% end %>
+
+    </div>
 </div>

@@ -1,2 +1,18 @@
-<h1>Wcups#index</h1>
-<p>Find me in app/views/wcups/index.html.erb</p>
+<div class="basediv container-fulid">
+
+    <div class="row">
+        <table id="wcups_table" class="table">
+            <thead class="thead-light">
+                <th>id</th>
+                <th>作成者コメント</th>
+            </thead>
+            <% @wcups.each do |wcup| %>
+                <tr>
+                    <td><%= link_to "#{wcup.id}", wcup_path(wcup.id) %></td>
+                    <td><%= link_to "#{wcup.comment}", wcup_path(wcup.id) %></td>
+                </tr>
+            <% end %>
+        </table>
+    </div>
+
+</div>

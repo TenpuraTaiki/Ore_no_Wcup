@@ -1,2 +1,47 @@
-<h1>Favorites#new</h1>
-<p>Find me in app/views/favorites/new.html.erb</p>
+<div class="basediv container-fulid">
+    <div class="row">
+        <% @participations.order(:group_id).order(:pot).each_slice(4).with_index(1) do |col_countries, i| %>
+            <div class="thirtysecond_box col-sm-3 d-none d-sm-block">
+                <h4>グループ<%= Group.find(i).name %></h4>
+                <% col_countries.each do |participation| %>
+                    <div class="thirtysecond">
+                        <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '40x40') %>
+                        <div class="radio_info">
+                            <p><%= participation.country.japanese %></p>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+
+    <%# レスポンシブ対応 %>
+    <div class="row">
+        <% @participations.order(:group_id).order(:pot).each_slice(4).with_index(1) do |col_countries, i| %>
+            <div class="thirtysecond_box col-6 d-sm-none">
+                <h4>グループ<%= Group.find(i).name %></h4>
+                <% col_countries.each do |participation| %>
+                    <div class="thirtysecond">
+                        <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '40x40') %>
+                        <div class="radio_info">
+                            <p><%= participation.country.japanese %></p>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+
+
+    <div class="favorite_box">
+        <h1>お気に入り登録</h1>
+        <h4>気に入った点をコメントに残しましょう！</h4>
+        <%= form_for([@favorite]) do |f| %>
+            <%= f.hidden_field :wcup_id, :value => params[:wcup_id] %>
+            <p>コメント（最大300文字）</p>
+            <%= f.text_area :comment %>
+
+            <%= f.submit "保存" %>
+        <% end %>
+    </div>
+</div>
