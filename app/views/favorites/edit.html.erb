@@ -1,2 +1,10 @@
-<h1>Favorites#edit</h1>
-<p>Find me in app/views/favorites/edit.html.erb</p>
+<div class="basediv">
+    <div class="edit_review_box"><h1>お気に入り編集画面</h1>
+        <%= form_for([@favorite]) do |f| %>
+            <p>コメント</p>
+            <%= r.text_area :comment %>
+
+            <%= r.submit '編集完了' %>
+        <% end %>
+    </div>
+</div>

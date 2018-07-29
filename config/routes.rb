@@ -2,14 +2,11 @@ Rails.application.routes.draw do
 
   root 'wcups#top'
   post 'wcups/create' => 'wcups#create'
-  get 'wcups/index'
-  get 'wcups/show'
+  get 'wcups/index' => 'wcups#index', as: 'wcups'
+  get 'wcups/:id/show' => 'wcups#show', as: 'wcup'
 
-  get 'favorites/new'
-  get 'favorites/create'
-  get 'favorites/edit'
-  get 'favorites/update'
-  get 'favorites/destroy'
+  post 'favorites/new' => 'favorites#new'
+  resources :favorites, only: [:new, :create, :edit, :update, :destroy]
 
   get 'countries/before' => 'countries#before', as: "country_before"
   get 'countries/europe' => 'countries#europe', as: "europe"

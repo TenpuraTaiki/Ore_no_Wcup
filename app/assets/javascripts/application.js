@@ -19,7 +19,7 @@ $(document).ready(function () {
 // なぜか.nokori_countを２つの場所に反映させようとすると上手くいかないので
 // しゃーなしに２つにわける
 
-    $('input').change(function () { 
+    $('input.notdisp').change(function () { 
 
         var participation_check = $(this).prop('checked');
         // .prop('checked')を使うと、チェックされていればtrue、されていなければfalseを返す

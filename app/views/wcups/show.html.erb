@@ -1,2 +1,60 @@
-<h1>Wcups#show</h1>
-<p>Find me in app/views/wcups/show.html.erb</p>
+<div class="basediv container-fulid">
+    <div class="talk">
+        <div class="announcer clearfix">
+            <div class="t_icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="t_message">
+                <p>今回の抽選結果についてどう思われますか？</p>
+            </div>
+        </div>
+        <div class="commentator clearfix">
+            <div class="t_icon">
+                <i class="fas fa-futbol"></i>
+            </div>
+            <div class="t_message">
+                <p><%= @favorite.comment %></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="POT1 row">
+        <% @participations.order(:group_id).order(:pot).each_slice(4).with_index(1) do |group, i| %>
+        <%# .with_indexだけだとiがゼロから始まる。(1)を付けることでiが1から始まる %>
+            <div class="d-none d-sm-block col-sm-6">
+                <div class="group_waku">
+                    <h2>グループ<%= Group.find(i).name %></h2>
+                    <% group.each do |participation| %>
+                        <div class="participation_waku">
+                            <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '120x120') %>
+                            <div class="group_info">
+                                <p class="country_name"><%= participation.country.japanese %></p>
+                                <p>Fifaランク<%= participation.country.fifarank %>位</p>
+                            </div>
+                        </div>
+                    <% end %>
+                    <br>
+                </div>
+            </div>
+        <% end %>
+        <% @participations.order(:group_id).order(:pot).each_slice(4).with_index(1) do |group, i| %>
+        <%# レスポンシブ対応 %>
+            <div class="col-12 d-sm-none">
+                <div class="group_waku">
+                    <h2>グループ<%= Group.find(i).name %></h2>
+                    <% group.each do |participation| %>
+                        <div class="participation_waku">
+                            <%= image_tag(image_url("flag/#{participation.country.name}.png"), :size => '120x120') %>
+                            <div class="group_info">
+                                <p class="country_name"><%= participation.country.japanese %></p>
+                                <p>Fifaランク<%= participation.country.fifarank %>位</p>
+                            </div>
+                        </div>
+                    <% end %>
+                    <br>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+</div>
