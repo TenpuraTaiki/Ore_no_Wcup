@@ -1,7 +1,7 @@
 class WcupsController < ApplicationController
   protect_from_forgery :except => [:create]
   def index
-    @wcups = Favorite.all
+    @wcups = Favorite.page(params[:page]).reverse_order
   end
 
   def show
@@ -82,22 +82,13 @@ class WcupsController < ApplicationController
     end
 
   # 本当は同大陸どうしは同じグループに入って欲しくないので条件つけて抽選をループさせたい
-    ga_pluck = @participations.where(group_id: 1).pluck(:country_id)
-    gb_pluck = @participations.where(group_id: 2).pluck(:country_id)
-    gc_pluck = @participations.where(group_id: 3).pluck(:country_id)
-    gd_pluck = @participations.where(group_id: 4).pluck(:country_id)
-    ge_pluck = @participations.where(group_id: 5).pluck(:country_id)
-    gf_pluck = @participations.where(group_id: 6).pluck(:country_id)
-    gg_pluck = @participations.where(group_id: 7).pluck(:country_id)
-    gh_pluck = @participations.where(group_id: 8).pluck(:country_id)
-    conti_check_a = Country.find(ga_pluck)
-    conti_check_b = Country.find(gb_pluck)
-    conti_check_c = Country.find(gc_pluck)
-    conti_check_d = Country.find(gd_pluck)
-    conti_check_e = Country.find(ge_pluck)
-    conti_check_f = Country.find(gf_pluck)
-    conti_check_g = Country.find(gg_pluck)
-    conti_check_h = Country.find(gh_pluck)
+
+  # 改善案
+  # 今回のようにPOTをシャッフルしてgroupidを割り当てるのではなく、groupAという変数を作って
+  # そこにPOT毎に一つずつランダムなparticipationを放り込む
+  # そして4つ入った時点で大陸チェックを行い、問題なければsaveする
+  # 続いてgroupBは@participationsでgroup_idがnilのものからピックする（以下groupH）まで同様
+  # というふうにしたら比較的楽そう
 
     redirect_to participations_path(wcup)
   end
