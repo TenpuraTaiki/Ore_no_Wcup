@@ -138,7 +138,7 @@
                 <button type="submit" class="typesubmit"><%= "お気に入りに登録する" %></button>
             <% end %>
         <% else %>
-            <%= link_to "お気に入り登録をするにはログインが必要です", new_user_session_path %>
+            <%= link_to "お気に入り登録をするにはログインが必要です", new_user_session_path(wcup: params[:id]) %>
         <% end %>
 
     </div>

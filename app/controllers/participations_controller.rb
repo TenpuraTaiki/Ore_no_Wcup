@@ -43,5 +43,6 @@ class ParticipationsController < ApplicationController
     death = sums.index(min_sum) + 1
 
     @death = Group.find(death)
+
   end
 end

@@ -20,6 +20,9 @@
       </div>
     <% end -%>
 
+    <%# ログイン後に抽選結果に戻すためidを送る %>
+    <%= check_box_tag :wcup, params[:wcup], true, :id => "wcupsignin", :class => "notdisp", :name => "wcup[]" %>
+
     <div class="actions">
       <%= f.submit "ログイン" %>
     </div>
