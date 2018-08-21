@@ -89,6 +89,49 @@ class WcupsController < ApplicationController
   # そして4つ入った時点で大陸チェックを行い、問題なければsaveする
   # 続いてgroupBは@participationsでgroup_idがnilのものからピックする（以下groupH）まで同様
   # というふうにしたら比較的楽そう
+  # ga_pluck = @participations.where(group_id: 1).pluck(:country_id)
+  # gb_pluck = @participations.where(group_id: 2).pluck(:country_id)
+  # gc_pluck = @participations.where(group_id: 3).pluck(:country_id)
+  # gd_pluck = @participations.where(group_id: 4).pluck(:country_id)
+  # ge_pluck = @participations.where(group_id: 5).pluck(:country_id)
+  # gf_pluck = @participations.where(group_id: 6).pluck(:country_id)
+  # gg_pluck = @participations.where(group_id: 7).pluck(:country_id)
+  # gh_pluck = @participations.where(group_id: 8).pluck(:country_id)
+  # conti_check_a = Country.find(ga_pluck).pluck(:country_id)
+  # conti_check_b = Country.find(gb_pluck).pluck(:country_id)
+  # conti_check_c = Country.find(gc_pluck).pluck(:country_id)
+  # conti_check_d = Country.find(gd_pluck).pluck(:country_id)
+  # conti_check_e = Country.find(ge_pluck).pluck(:country_id)
+  # conti_check_f = Country.find(gf_pluck).pluck(:country_id)
+  # conti_check_g = Country.find(gg_pluck).pluck(:country_id)
+  # conti_check_h = Country.find(gh_pluck).pluck(:country_id)
+  # a_europe = conti_check_a.count(1)
+  # a_africa = conti_check_a.count(2)
+  # a_southamerica = conti_check_a.count(3)
+  # a_asia = conti_check_a.count(4)
+  # a_concacaf = conti_check_a.count(5)
+  # if a_europe <= 2
+  #   if a_africa <= 1
+  #     if a_southamerica <= 1
+  #       if a_asia <= 1
+  #         if a_concacaf <= 1
+  #           check_a = true
+  #         end
+  #       end
+  #     end
+  #   end
+  # end
+  # if b_europe <= 2
+  #   if b_africa <= 1
+  #     if b_southamerica <= 1
+  #       if b_asia <= 1
+  #         if b_concacaf <= 1
+  #           check_b = true
+  #         end
+  #       end
+  #     end
+  #   end
+  # end
 
     redirect_to participations_path(wcup)
   end

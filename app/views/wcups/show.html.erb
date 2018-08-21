@@ -16,6 +16,7 @@
                 <p><%= @favorite.comment %></p>
             </div>
         </div>
+        <%= link_to "ツイートする", "https://twitter.com/share", :class => "twitter-share-button", "data-size" => "large", "data-text" => "俺のワールドカップ", "data-lang" => "ja", "data-url" => "http://52.192.93.208#{wcup_path(params[:id])}" %>
     </div>
 
     <div class="POT1 row">
